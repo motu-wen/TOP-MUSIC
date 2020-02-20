@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+</head>
+<body background="123.jpg">
+
+<dl>
+ <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            $.getJSON('biaoshengbang.json',
+            null,
+                    function(result){
+                        var ul = document.getElementsByTagName('dl')[0];
+                        for(var i = 0 ; i< result.length; i++){
+                            var stuData = result[i];
+                            var dd = document.createElement('dd');
+                            dd.innerHTML =  '<table align=center cellpadding="0" cellspacing="0" border="1" >'+'<tr>'+
+                                            '<td  align=center width="50" height="33" class="num">' + stuData["num"] + '</td>' +
+                                            '<td align=center width="500" height="33" class="href">'+ '<a href=" '+ stuData["href"] +  '">'  +stuData["name"] +'</a>'+ '</td>'+
+                                            '<td  align=center width="150" height="33" class="singer">' + stuData["singer"] + '</td>'
+                            ul.appendChild(dd);
+                        }
+                    });
+
+
+
+        }
+    </script>
+</dl>
+
+</body>
+
+</html>
